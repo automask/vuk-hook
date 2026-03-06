@@ -2,6 +2,6 @@ build/
 .vs
 .spv
 .cache/
-.vscode/
 checks.json
 .clangd
+# .vscode/
