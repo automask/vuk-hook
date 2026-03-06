@@ -100,6 +100,20 @@ function(ADD_EXAMPLE name)
     copy_runtime_dlls(${FULL_NAME})
 endfunction(ADD_EXAMPLE)
 
+function(APP_EXAMPLE name)
+    set(FULL_NAME "app_${name}")
+    add_executable(${FULL_NAME})
+
+    add_library(${FULL_NAME}_obj OBJECT "${name}.cpp")
+    target_link_libraries(${FULL_NAME}_obj PUBLIC vuk-example-framework)
+    target_link_libraries(${FULL_NAME} PRIVATE ${FULL_NAME}_obj vuk_example_runner_single)
+    target_link_libraries(vuk_all_examples PRIVATE ${FULL_NAME}_obj)
+
+    copy_runtime_dlls(${FULL_NAME})
+endfunction()
+
+APP_EXAMPLE(00_ks_triangle)
+# 
 ADD_EXAMPLE(01_triangle)
 if(VUK_USE_DXC)
     ADD_EXAMPLE(01_triangle_dxc)
