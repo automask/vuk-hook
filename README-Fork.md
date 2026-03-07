@@ -18,6 +18,7 @@
 ### vscode 配置
 - 配置变量 CMake Cache Editor
     - VUK_USE_SLANG
+    - VUK_BUILD_EXAMPLES
 ```json
 {
     "cmake.generator": "Ninja"

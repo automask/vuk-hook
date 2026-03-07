@@ -14,6 +14,15 @@ void vuk::ExampleRunner::render() {
 		while (suspend) {
 			glfwWaitEvents();
 		}
+
+		{
+			// ImGui_ImplGlfw_NewFrame();
+			// ImGui::NewFrame();
+
+			// ImGui::Begin("Tool");
+			// ImGui::End();
+		}
+
 		// advance the frame for the allocators and caches used by vuk
 		auto& frame_resource = app->superframe_resource->get_next_frame();
 		app->next_frame();
