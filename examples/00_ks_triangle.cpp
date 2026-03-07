@@ -1,5 +1,6 @@
 #include "example_runner.hpp"
 
+// TODO : 使用 imgui
 namespace {
 	vuk::Example x{
 		// The display name of this example
@@ -23,6 +24,13 @@ namespace {
 		      // The rendergraph is composed of passes (vuk::Pass)
 		      // Each pass declares which resources are used
 		      // And it provides a callback which is executed when this pass is being ran
+
+		      // !!! Render运行在独立的线程里面，而Imgui事件循环在主线程
+		      // 绘制imgui
+		      //   ImGui::Begin("Settings");
+		      //   ImGui::Text("Hello, world!");
+		      //   ImGui::End();
+
 		      auto pass = vuk::make_pass("01_triangle", [](vuk::CommandBuffer& command_buffer, VUK_IA(vuk::eColorWrite) color_rt) {
 			      command_buffer.set_viewport(0, vuk::Rect2D::framebuffer());
 			      // Set the scissor area to cover the entire framebuffer

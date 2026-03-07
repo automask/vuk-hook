@@ -5,3 +5,5 @@ build/
 checks.json
 .clangd
 # .vscode/
+config.bat
+node_modules
